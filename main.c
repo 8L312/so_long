@@ -6,11 +6,11 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 17:16:43 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/03 17:43:17 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/06 20:47:24 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
-
+/*
 int	main(int argc, char **argv)
 {
 	char	*map;
@@ -32,3 +32,4 @@ int	main(int argc, char **argv)
 		game(map);
 	return (1);
 }
+*/
