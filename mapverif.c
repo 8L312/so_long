@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 18:33:49 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/06 21:49:05 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/06 22:16:10 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -75,6 +75,18 @@ int	mapfullmur(char *map)
 	return (1);
 }
 
+int	characheck(char *map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i++] != '\0')
+		if (map[i] != '1' && map[i] != '0' && map[i] != 'P' && map[i] != 'C'
+			&& map[i] != 'E' && map[i] != '\n' && map[i] != '\0')
+			return (0);
+	return (1);
+}
+
 char	*mapverif(char *mapfile)
 {
 	int		fd;
@@ -89,7 +101,7 @@ char	*mapverif(char *mapfile)
 		return (NULL);
 	if (!mapfullmur(map))
 		return (NULL);
-//	if (!characheck(map))
-//		return (NULL);
+	if (!characheck(map))
+		return (NULL);
 	return (map);
 }
