@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:20:19 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/07 19:33:24 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/07 22:12:13 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -102,20 +102,3 @@ char	**ft_split(char const *s, char c)
 	split = spliter(split, s, c);
 	return (split);
 }
-
-/*
-#include "ft_strlen.c"
-int	main(void)
-{
-	char	**sp;
-	int		i;
-
-	sp = ft_split("|||split  ||this|for|me|||||!|", '|');
-	i = 0;
-	while (sp[i] != NULL)
-	{
-		printf("%s", sp[i]);
-		i ++;
-	}
-	return (0);
-}*/

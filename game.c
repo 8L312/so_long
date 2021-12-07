@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:21:01 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/07 21:55:30 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/08 00:33:03 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -38,6 +38,7 @@ void	mlx_initer(t_var *var)
 	var->gimg = mlx_xpm_file_to_image(var->mlx, "herb.xpm", lel, lel);
 	var->cimg = mlx_xpm_file_to_image(var->mlx, "explosion.xpm", lel, lel);
 	var->eimg = mlx_xpm_file_to_image(var->mlx, "kazuma.xpm", lel, lel);
+	var->bimg = mlx_xpm_file_to_image(var->mlx, "billboard.xpm", lel, lel);
 }
 
 void	caraprint(int x, int y, int i, t_var *var)
@@ -49,8 +50,8 @@ void	caraprint(int x, int y, int i, t_var *var)
 	{
 		mlx_put_image_to_window(var->mlx, var->win,
 			var->pimg, x * 128, y * 128);
-		var->posx = x;
-		var->posy = y;
+		var->posx = x * 128;
+		var->posy = y * 128;
 	}
 	if (var->map[i] == 'C')
 		mlx_put_image_to_window(var->mlx, var->win,
@@ -97,6 +98,10 @@ int	game(char *map)
 	var.map = map;
 	mlx_initer(&var);
 	map_1st_print(&var);
+	mlx_key_hook(var.win, deal_key, &var);
+	mlx_put_image_to_window(var.mlx, var.win, var.bimg, 32, 32);
+	mlx_string_put(var.mlx, var.win, 50, 50, 1, "0");
+	mlx_string_put(var.mlx, var.win, 50, 60, 1, "move");
 	mlx_loop(var.mlx);
 	return (0);
 }
