@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 17:28:00 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/08 00:30:50 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/08 00:49:34 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef SO_LONG_H
@@ -32,6 +32,7 @@ typedef struct s_var {
 	void	*bimg;
 	int		posx;
 	int		posy;
+	int		poschar;
 	int		larg;
 	int		haut;
 	int		move;

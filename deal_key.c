@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 23:33:48 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/08 00:35:29 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/08 00:48:01 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -23,18 +23,18 @@ void	lessmove(int key, t_var *var)
 	if (key == 0)
 	{
 		mlx_put_image_to_window(var->mlx, var->win,
-			var->gimg, var->posx, var->posy);
+			var->gimg, var->posx * 128, var->posy * 128);
 		mlx_put_image_to_window(var->mlx, var->win,
-			var->pimg, var->posx - 128, var->posy);
-		var->posx -= 128;
+			var->pimg, (var->posx * 128) - 128, var->posy * 128);
+		var->posx--;
 	}
 	else if (key == 2)
 	{
 		mlx_put_image_to_window(var->mlx, var->win,
-			var->gimg, var->posx, var->posy);
+			var->gimg, var->posx * 128, var->posy * 128);
 		mlx_put_image_to_window(var->mlx, var->win,
-			var->pimg, var->posx + 128, var->posy);
-		var->posx += 128;
+			var->pimg, (var->posx * 128) + 128, var->posy * 128);
+		var->posx++;
 	}
 }
 
@@ -43,18 +43,18 @@ void	lessmove2(int key, t_var *var)
 	if (key == 13)
 	{
 		mlx_put_image_to_window(var->mlx, var->win,
-			var->gimg, var->posx, var->posy);
+			var->gimg, var->posx * 128, var->posy * 128);
 		mlx_put_image_to_window(var->mlx, var->win,
-			var->pimg, var->posx, var->posy - 128);
-		var->posy -= 128;
+			var->pimg, var->posx * 128, (var->posy * 128) - 128);
+		var->posy--;
 	}
 	else if (key == 1)
 	{
 		mlx_put_image_to_window(var->mlx, var->win,
-			var->gimg, var->posx, var->posy);
+			var->gimg, var->posx * 128, var->posy * 128);
 		mlx_put_image_to_window(var->mlx, var->win,
-			var->pimg, var->posx, var->posy + 128);
-		var->posy += 128;
+			var->pimg, var->posx * 128, (var->posy * 128) + 128);
+		var->posy++;
 	}
 }
 

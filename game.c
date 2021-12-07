@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:21:01 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/08 00:33:03 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/08 00:50:22 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -50,8 +50,9 @@ void	caraprint(int x, int y, int i, t_var *var)
 	{
 		mlx_put_image_to_window(var->mlx, var->win,
 			var->pimg, x * 128, y * 128);
-		var->posx = x * 128;
-		var->posy = y * 128;
+		var->posx = x;
+		var->posy = y;
+		var->poschar = i;
 	}
 	if (var->map[i] == 'C')
 		mlx_put_image_to_window(var->mlx, var->win,
