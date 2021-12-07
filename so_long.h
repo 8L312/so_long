@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 17:28:00 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/06 21:14:32 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/07 21:05:25 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef SO_LONG_H
@@ -19,21 +19,25 @@
 # include <sys/uio.h>
 # include <string.h>
 # include <stddef.h>
-# include "mlx.h"
+# include "./minilibx/mlx.h"
 
 typedef struct s_var {
 	void	*mlx;
 	void	*win;
 	void	*wimg;
 	void	*pimg;
-	void	*fimg;
+	void	*gimg;
 	void	*cimg;
+	void	*eimg;
 	int		posx;
 	int		posy;
+	int		larg;
+	int		haut;
 	int		move;
+	char	*map;
 }				t_var;
 
-# define BUFFER_SIZE  1
+# define BUFFER_SIZE  999
 
 int		main(int argc, char **argv);
 char	*mapverif(char *mapfile);
@@ -52,5 +56,10 @@ char	**spliter(char **split, char const *s, char c);
 char	*word_dup(char *str, int start, int finish);
 int		word_counter(char *str, char c);
 size_t	combienlignes(char *map);
+int		game(char *map);
+int		combiencolon(char *map);
+void	mlx_initer(t_var *var);
+void	map_1st_print(t_var *var);
+void	caraprint(int x, int y, int i, t_var *var);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 17:16:43 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/06 22:18:10 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/06 22:38:43 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -15,8 +15,6 @@ int	main(int argc, char **argv)
 {
 	char	*map;
 
-	(void) argc;
-	(void) argv;
 	if (argc != 2)
 	{
 		printf("Error\nInvalid arguments\n");
@@ -32,4 +30,3 @@ int	main(int argc, char **argv)
 		game(map);
 	return (1);
 }
-

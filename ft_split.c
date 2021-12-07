@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:20:19 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/06 21:50:16 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/07 19:33:24 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -23,7 +23,7 @@ size_t	combienlignes(char *map)
 		if (map[i] == '\n')
 			c++;
 	}
-	return (c - 1);
+	return (c);
 }
 
 int	word_counter(char *str, char c)
@@ -75,11 +75,11 @@ char	**spliter(char **split, char const *s, char c)
 	i = 0;
 	j = 0;
 	index = -1;
-	while (i <= ft_strlen(s))
+	while (i <= ft_strlen((char *)s))
 	{
 		if (s[i] != c && index < 0)
 			index = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
+		else if ((s[i] == c || i == ft_strlen((char *)s)) && index >= 0)
 		{
 			split[j++] = word_dup((char *)s, index, i);
 			index = -1;

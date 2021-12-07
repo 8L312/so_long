@@ -6,11 +6,11 @@
 #    By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 15:17:33 by rmonney           #+#    #+#              #
-#    Updated: 2021/12/03 17:15:34 by rmonney          ###   ########.fr        #
+#    Updated: 2021/12/06 22:20:40 by rmonney          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= CCCCC
+SRCS		= get_next_line.c get_next_line_utils.c main.c ft_split.c mapverif.c game.c
 
 OBJS		= ${SRCS:.c=.o}
 
