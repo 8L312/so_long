@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 17:28:00 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/08 00:49:34 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/08 17:04:46 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef SO_LONG_H
@@ -30,11 +30,15 @@ typedef struct s_var {
 	void	*cimg;
 	void	*eimg;
 	void	*bimg;
+	void	*enimg;
 	int		posx;
 	int		posy;
+	int		ex;
+	int		ey;
 	int		poschar;
 	int		larg;
 	int		haut;
+	int		exitok;
 	int		move;
 	char	*moves;
 	char	*map;
@@ -72,5 +76,6 @@ long int	power(long int nb, int pow);
 long int	caracounter(long int n);
 void		lessmove(int key, t_var *var);
 void		lessmove2(int key, t_var *var);
+int			isexitok(int nextpos, t_var *var);
 
 #endif

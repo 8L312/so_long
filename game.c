@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:21:01 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/08 00:50:22 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/08 17:04:27 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -25,8 +25,12 @@ void	mlx_initer(t_var *var)
 {
 	int	*lel;
 	int	lol;
+	int	*lal;
+	int	lul;
 
+	lul = 12;
 	lol = 0;
+	lal = &lul;
 	lel = &lol;
 	var->larg = combiencolon(var->map);
 	var->haut = combienlignes(var->map);
@@ -39,6 +43,7 @@ void	mlx_initer(t_var *var)
 	var->cimg = mlx_xpm_file_to_image(var->mlx, "explosion.xpm", lel, lel);
 	var->eimg = mlx_xpm_file_to_image(var->mlx, "kazuma.xpm", lel, lel);
 	var->bimg = mlx_xpm_file_to_image(var->mlx, "billboard.xpm", lel, lel);
+	var->enimg = mlx_xpm_file_to_image(var->mlx, "n_kazuma.xpm", lal, lel);
 }
 
 void	caraprint(int x, int y, int i, t_var *var)
@@ -58,8 +63,12 @@ void	caraprint(int x, int y, int i, t_var *var)
 		mlx_put_image_to_window(var->mlx, var->win,
 			var->cimg, x * 128, y * 128);
 	if (var->map[i] == 'E')
+	{
 		mlx_put_image_to_window(var->mlx, var->win,
-			var->eimg, x * 128, y * 128);
+			var->enimg, x * 128, y * 128);
+		var->ex = x;
+		var->ey	= y;
+	}
 }
 
 void	map_1st_print(t_var *var)
@@ -96,6 +105,7 @@ int	game(char *map)
 	t_var	var;
 
 	var.move = 0;
+	var.exitok = 0;
 	var.map = map;
 	mlx_initer(&var);
 	map_1st_print(&var);

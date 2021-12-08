@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 17:16:43 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/06 22:38:43 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/08 16:43:53 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	map = mapverif(argv[1]);
 	if (!map)
 	{
-		printf("Error\nInvalid map\n");
+		printf("Error\nTa map est naze frerr\n");
 		return (-1);
 	}
 	else

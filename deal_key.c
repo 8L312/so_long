@@ -6,15 +6,51 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 23:33:48 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/08 00:48:01 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/08 17:14:07 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
 
+int	isexitok(int nextpos, t_var *var)
+{
+	if (!ft_strchr(var->map, 'C'))
+	{
+		var->exitok = 1;
+		mlx_put_image_to_window(var->mlx, var->win,
+			var->gimg, var->ex * 128, var->ey * 128);
+		mlx_put_image_to_window(var->mlx, var->win,
+			var->eimg, var->ex * 128, var->ey * 128);
+	}
+	if (var->map[nextpos] == 'E' && var->exitok)
+	{
+		printf("EXPLOSIOOOOOOOOON !!!\nBRAVO TU AS GAGNE\n");
+		exit(0);
+		return (1);
+	}
+	return (0);
+}
+
 int	verificator(int key, t_var *var)
 {
+	int	nextpos;
+
+	nextpos = 0;
 	if (key == 0)
-		printf("lol %d\n", var->posx);
+		nextpos = var->poschar - 1;
+	else if (key == 2)
+		nextpos = var->poschar + 1;
+	else if (key == 1)
+		nextpos = var->poschar + var->larg;
+	else if (key == 13)
+		nextpos = var->poschar - var->larg;
+	if (var->map[nextpos] == '1')
+		return (0);
+	if (var->map[nextpos] == 'E')
+		return (isexitok(nextpos, var));
+	if (var->map[nextpos] == 'C')
+		var->map[nextpos] = '0';
+	var->poschar = nextpos;
+	isexitok(nextpos, var);
 	return (1);
 }
 
