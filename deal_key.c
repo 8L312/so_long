@@ -6,20 +6,29 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 23:33:48 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/08 17:14:07 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/08 17:27:17 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
 
 int	isexitok(int nextpos, t_var *var)
 {
-	if (!ft_strchr(var->map, 'C'))
+	int	i;
+
+	i = 0;
+	if (!ft_strchr(var->map, 'C') && !var->exitok)
 	{
 		var->exitok = 1;
-		mlx_put_image_to_window(var->mlx, var->win,
-			var->gimg, var->ex * 128, var->ey * 128);
-		mlx_put_image_to_window(var->mlx, var->win,
-			var->eimg, var->ex * 128, var->ey * 128);
+		while (var->map[i] != '\0')
+		{
+			if (var->map[++i] == 'E')
+			{
+				mlx_put_image_to_window(var->mlx, var->win,
+					var->gimg, (i % var->larg) * 128, (i / var->larg) * 128);
+				mlx_put_image_to_window(var->mlx, var->win,
+					var->eimg, (i % var->larg) * 128, (i / var->larg) * 128);
+			}
+		}
 	}
 	if (var->map[nextpos] == 'E' && var->exitok)
 	{
