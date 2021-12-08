@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:21:01 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/08 17:29:53 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/08 17:56:32 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -113,6 +113,8 @@ int	game(char *map)
 	mlx_put_image_to_window(var.mlx, var.win, var.bimg, 32, 32);
 	mlx_string_put(var.mlx, var.win, 50, 50, 1, "0");
 	mlx_string_put(var.mlx, var.win, 50, 60, 1, "move");
+	if (!var.win)
+		exit(0);
 	mlx_loop(var.mlx);
 	return (0);
 }
