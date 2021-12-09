@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 18:33:49 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/07 22:19:11 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/09 17:29:00 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -78,27 +78,24 @@ int	mapfullmur(char *map)
 int	characheck(char *map)
 {
 	int	i;
-	int	p;
-	int	c;
-	int	e;
 
 	i = 0;
-	p = 0;
-	c = 0;
-	e = 0;
 	while (map[i++] != '\0')
 	{
 		if (map[i] != '1' && map[i] != '0' && map[i] != 'P' && map[i] != 'C'
 			&& map[i] != 'E' && map[i] != '\n' && map[i] != '\0')
+		{
+			printf("Error\n( ° ͜ʖ͡°)╭∩╮Ya des caracteres ");
+			printf("interdits dans ta map\n");
 			return (0);
-		if (map[i] == 'P')
-			p = 1;
-		if (map[i] == 'C')
-			c = 1;
-		if (map[i] == 'E')
-			e = 1;
+		}
 	}
-	if (p != 1 && c != 1 && e != 1)
+	if (!ft_strchr(map, 'P') || !ft_strchr(map, 'C') || !ft_strchr(map, 'E'))
+	{
+		printf("Error\n( ° ͜ʖ͡°)╭∩╮Il te manque des caracteres obligatoires\n");
+		return (0);
+	}
+	if (!oneplayeronly(map))
 		return (0);
 	return (1);
 }
@@ -110,13 +107,22 @@ char	*mapverif(char *mapfile)
 
 	map = NULL;
 	if (!mapisber(mapfile))
+	{
+		printf("Error\n( ° ͜ʖ͡°)╭∩╮ Essaie une map en .ber plutot\n");
 		return (NULL);
+	}
 	fd = open((const char *)mapfile, O_RDONLY);
 	map = get_next_line(fd);
 	if (!maprectangle(map))
+	{
+		printf("Error\n( ° ͜ʖ͡°)╭∩╮ Ta map n'est pas rectangle\n");
 		return (NULL);
+	}
 	if (!mapfullmur(map))
+	{
+		printf("Error\n( ° ͜ʖ͡°)╭∩╮ Il manque des murs autour de ta map\n");
 		return (NULL);
+	}
 	if (!characheck(map))
 		return (NULL);
 	return (map);

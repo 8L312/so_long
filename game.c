@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:21:01 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/08 17:56:32 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/09 16:09:43 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -110,11 +110,10 @@ int	game(char *map)
 	mlx_initer(&var);
 	map_1st_print(&var);
 	mlx_key_hook(var.win, deal_key, &var);
+	mlx_hook(var.win, 17, 0, exiter, &var);
 	mlx_put_image_to_window(var.mlx, var.win, var.bimg, 32, 32);
 	mlx_string_put(var.mlx, var.win, 50, 50, 1, "0");
 	mlx_string_put(var.mlx, var.win, 50, 60, 1, "move");
-	if (!var.win)
-		exit(0);
 	mlx_loop(var.mlx);
 	return (0);
 }

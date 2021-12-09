@@ -6,11 +6,11 @@
 #    By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 15:17:33 by rmonney           #+#    #+#              #
-#    Updated: 2021/12/08 00:03:45 by rmonney          ###   ########.fr        #
+#    Updated: 2021/12/09 16:31:11 by rmonney          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= get_next_line.c get_next_line_utils.c main.c ft_split.c mapverif.c game.c deal_key.c ft_itoa.c
+SRCS		= get_next_line.c get_next_line_utils.c lemain.c ft_split.c verifmap.c game.c deal_key.c ft_itoa.c poubelle.c
 
 OBJS		= ${SRCS:.c=.o}
 

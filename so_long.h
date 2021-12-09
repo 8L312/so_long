@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 17:28:00 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/08 17:04:46 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/09 17:28:47 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef SO_LONG_H
@@ -77,5 +77,7 @@ long int	caracounter(long int n);
 void		lessmove(int key, t_var *var);
 void		lessmove2(int key, t_var *var);
 int			isexitok(int nextpos, t_var *var);
+int			exiter(t_var *var);
+int			oneplayeronly(char *map);
 
 #endif
