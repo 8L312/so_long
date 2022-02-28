@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 18:33:49 by rmonney           #+#    #+#             */
-/*   Updated: 2021/12/09 17:29:00 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/12/10 16:51:33 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -63,14 +63,16 @@ int	mapfullmur(char *map)
 		j++;
 	if ((j - 1) != len)
 		return (0);
-	j = 1;
-	while (j++ != a - 1)
+	j = 0;
+	while (++j != a - 1)
 		if (split[j][0] != '1' || split[j][len] != '1')
 			return (0);
 	j = 0;
+	if (split[a - 1] == NULL)
+		return (0);
 	while (split[a - 1][j] == '1')
 		j++;
-	if ((j - 1) != len)
+	if ((j - 1) != len || j == 0)
 		return (0);
 	return (1);
 }
